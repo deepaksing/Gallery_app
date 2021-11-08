@@ -1,0 +1,64 @@
+body {
+	margin-left: 0 auto;
+	padding: 0 16px;
+}
+.header {
+	font-size: 64px;
+}
+div {
+	color: #333333;
+	font-family: arial;
+}
+.main {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+	margin-left: 70px;
+}
+.imgss {
+	margin: 30px
+}
+
+.mm {
+	text-decoration: none;
+	color: #888888;
+
+}
+
+img {
+	height: 300px;
+	width: 250px;
+	
+}
+
+
+.second {
+	border-top: 1px solid #eeeeee;
+	padding: 16px 0;
+
+	text-align: center;
+}
+
+.home {
+	color: #888888;
+	text-decoration: none;
+	text-align: center;
+}
+
+.header, .newim, .head {
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.below {
+	margin: 10px;
+	display: flex;
+}
+.del {
+	margin: 5px;
+}
+.edit {
+	margin-bottom:  25px;
+	margin-top: 5px;
+
+

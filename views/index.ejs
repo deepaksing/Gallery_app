@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Image Uploading</title>
+	 <link rel="stylesheet" href="./css/index.css">
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+	
+	<div class="header"> Gallery </div>
+
+	<%- include('header')%>
+	<div class="newim">
+		<a href = "new" class="mm btn btn-success">New Image</a>
+	</div>
+	<div class="second">Uploaded Images</div>
+	
+	<div class="main">
+		<% images.forEach(function(imgs) { %>
+		<div class="card imgss" style="width: 24rem;">
+		  <a href="/show/<%=imgs.id%>">
+		  	<img src="<%=imgs.imgURL%>" class="card-img-top" alt="...">
+		  </a>
+		  <div class="card-body">
+		    <h5 class="card-title"><%= imgs.imgName %></h5>
+		    <p class="card-text"><%= imgs.imgDetails %></p>
+			 <div class="below">
+	     		<a href="/<%=imgs.id%>/edit" class="edit btn btn-success">Edit</a>
+		    	<div class="del">
+		    		<form action="/<%=imgs.id%>/delete?_method=DELETE" method="POST">
+		    		<button type="submit" class="btn btn-danger">Delete</button>
+		    		</form>
+		    	</div>
+	     	</div>
+		  </div>
+		</div>
+        
+        <% }) %>
+	</div> 
+
+
+	
+</body>
+
+</html>
