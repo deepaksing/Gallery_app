@@ -5,6 +5,7 @@ const fs = require('fs')
 const ejs = require('ejs')
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+require('dotenv').config()
 
 ///////
 const image = require('./databse/model/schema')
