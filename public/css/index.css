@@ -18,11 +18,26 @@ div {
 .imgss {
 	margin: 30px
 }
-
+.mform {
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 25px;
+}
+.searchname {
+	padding: 4px;
+	margin-right: 10px;
+	margin-bottom: 4px;
+	border-radius: 10px;
+}
 .mm {
 	text-decoration: none;
 	color: #888888;
 
+}
+
+.tton {
+	margin-top: 5px;
 }
 
 img {
@@ -62,3 +77,15 @@ img {
 	margin-top: 5px;
 
 
+}
+
+.pagess {
+	text-decoration: none;
+	color: green;
+	padding-right: 5px;
+	padding-left: 10px;
+}
+.pagenation {
+	margin-left: 100px;
+	color: gray;
+}

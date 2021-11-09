@@ -18,8 +18,27 @@
 		<a href = "new" class="mm btn btn-success">New Image</a>
 	</div>
 	<div class="second">Uploaded Images</div>
-	
+	<div>
+		<form action="/?search=true" method="GET">
+		<div class="mform">
+			<input type="text" placeholder="Search.." name="imName" id="imName" class="searchname">
+			<input class=" tton btn btn-primary mb-2"type = "submit" placeholder="submit">
+		</div>
+
+
+		
+		
+	</form>
+	</div>
+	<div class="pagenation"> 
+		 Pages:
+		<% for (var i =0; i <=nos;  i++ ) { %>
+  			<a class="pagess" href="/?page=<%=i+1%>"><%=i+1%></a>
+
+		<% } %>
+	</div>
 	<div class="main">
+		
 		<% images.forEach(function(imgs) { %>
 		<div class="card imgss" style="width: 24rem;">
 		  <a href="/show/<%=imgs.id%>">
@@ -40,6 +59,10 @@
 		</div>
         
         <% }) %>
+
+        
+
+        
 	</div> 
 
 

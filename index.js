@@ -29,11 +29,52 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-
+var vis = 0;
 //Routes
 app.get('/', async(req, res) => {
-	const all_images = await image.find()
-	res.render('index', {images: all_images})
+	var all_images;
+	var page = 1
+	var limit = 9
+	if(req.query.imName) {
+		all_images = await image.find({imgName: req.query.imName})
+	}
+	else {
+		all_images = await image.find()
+	}
+
+	
+	if(!req.query.page) {
+		page = 1;
+		vis++; 
+	}
+	else {
+		page = parseInt(req.query.page)
+	}
+
+	const startIndex = (page-1)*limit
+	const endIndex = page*limit
+	
+	const pgs = all_images.length/limit
+
+	const results = {}
+	if(endIndex < all_images.length) {
+		results.next = {
+			page: page+1,
+			limit: limit
+		}	
+	}
+	
+
+	if(startIndex>0) {
+		results.previous = {
+			page: page-1,
+			limit: limit
+		}
+	}
+
+	results.results = all_images.slice(startIndex, endIndex)
+	res.render('index', {images: results.results, nos:pgs})
+	
 })
 
 app.get('/show/:id', async (req, res) => {
@@ -75,14 +116,14 @@ app.get('/new', (req, res) => {
 })
 
 app.post('/should', async (req, res) => {
-  	console.log(req)
+  	//console.log(req)
   	const newim = new image({
   		imgName: req.body.imgName,
   		imgDetails: req.body.imgDetails,
   		imgURL: req.body.imgURL
   	})
 
-  	console.log(newim)
+  	//console.log(newim)
   	await newim.save()
   	res.redirect(`/show/${newim.id}`)
 
